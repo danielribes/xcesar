@@ -46,20 +46,21 @@ new Vue({
 								};
 
 			var arrOfChars = this.message.split('');
-			this.cipherMessage = arrOfChars.map(function (currentValue){	
-													theChar = currentValue.toUpperCase().charCodeAt();
-													if( theChar != 32 )
-													{
-														newCode = theChar + this.jump;
-														if ( newCode > this.lastCode ) 
-														{
-															newCode = theChar - this.backJump;
-														} 
-														return String.fromCharCode(newCode);
-													} else {
-														return ' ';
-													}
-												}, CipherConfig).join('');
+			this.cipherMessage = arrOfChars.map(
+				function (currentValue){	
+				theChar = currentValue.toUpperCase().charCodeAt();
+				if( theChar != 32 )
+				{
+					newCode = theChar + this.jump;
+					if ( newCode > this.lastCode ) 
+					{
+						newCode = theChar - this.backJump;
+					} 
+					return String.fromCharCode(newCode);
+				} else {
+					return ' ';
+				}
+			}, CipherConfig).join('');
 		}
 	}
 });
